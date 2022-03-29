@@ -1,64 +1,64 @@
-import {BoardSchema} from "./schemas";
+import {UserSchema} from "./schemas";
 import { getSuccesResponseSchema } from "./comman";
 
 export default {
     getOne: {
         schema:  {
-            tags: ["Boards"],
-            summary: "Get board by id",
+            tags: ["Users"],
+            summary: "Get user by id",
             params: {
                 taskId: {
                     type: "number",
                 },
             },
             response: {
-                200: getSuccesResponseSchema(BoardSchema)
+                200: getSuccesResponseSchema(UserSchema)
             }
         }
     },
     getAll: {
         schema:  {
-            tags: ["Boards"],
-            summary: "Get board by id",
+            tags: ["Users"],
+            summary: "Get user by id",
             response: {
-                200: getSuccesResponseSchema({ type: "object", items: BoardSchema })
+                200: getSuccesResponseSchema({ type: "object", items: UserSchema })
             }
         }
     },
     create: {
         schema:  {
-            tags: ["Boards"],
-            summary: "Get board by id",
+            tags: ["Users"],
+            summary: "Get user by id",
             response: {
-                200: getSuccesResponseSchema(BoardSchema),
+                200: getSuccesResponseSchema(UserSchema),
             },
         }
     },
     update: {
         schema:  {
-            tags: ["Boards"],
-            summary: "Update board by id",
+            tags: ["Users"],
+            summary: "Get user by id",
             params: {
                 taskId: {
                     type: "number",
                 },
             },
             response: {
-                200: getSuccesResponseSchema(BoardSchema),
+                200: getSuccesResponseSchema(UserSchema),
             },
         }
     },
     delete: {
         schema:  {
-            tags: ["Boards"],
-            summary: "Delete board by id",
+            tags: ["Users"],
+            summary: "Get user by id",
             params: {
                 taskId: {
                     type: "number",
                 },
             },
             response: {
-                200: getSuccesResponseSchema(BoardSchema),
+                200: getSuccesResponseSchema(UserSchema),
             },
         }
     }

@@ -14,13 +14,13 @@ export const swagger = {
     },
 };
 
-export const cors = (req: any, callback: any) => {
-    let corsOptions;
-    const { origin } = req.headers;
-    if (/192.168.1/.test(origin)) {
-      corsOptions = { origin: false };
-    } else {
-      corsOptions = { origin: true };
-    }
-    callback(null, corsOptions);
-};
+// export const cors = (req, callback) => {
+//     let corsOptions;
+//     const { origin } = req.headers;
+//     if (/192.168.1/.test(origin)) {
+//       corsOptions = { origin: false };
+//     } else {
+//       corsOptions = { origin: true };
+//     }
+//     callback(null, corsOptions);
+// };
