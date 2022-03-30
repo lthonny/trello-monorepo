@@ -3,8 +3,8 @@ export const TaskSchema = {
     properties: {
         id: { type: "number" },
         title: { type: "number" },
-        description: { type: "number" },
-        nameTaskList: { type: "number" },
+        description: { type: "string" },
+        nameTaskList: { type: "string" },
         board_id: { type: "number" },
         order: { type: "number" },
         archive: { type: "boolean" },

@@ -8,7 +8,7 @@ const boards = [
     { id: 5, title: 'Web Sailers 5', description: 'description', userId: 1}
 ];
 
-export const getBoardById = async (boardId: BoardId) => {
+export const getBoardById = async (boardId: number) => {
     return boards.find(board => board.id === boardId);
 };
 

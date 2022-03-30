@@ -10,7 +10,7 @@ const BoardsRoute: FastifyPluginAsync = async (server: FastifyInstance) => {
         return successResponse(boards);
     });
 
-    server.get<{Params: boardId}>('/:boardId', routerOptions.getOne, async (request) => {
+    server.get<{Params: any}>('/:boardId', routerOptions.getOne, async (request) => {
         const { boardId } = request.params;
         const board = await getBoardById(boardId);
         return successResponse(board);

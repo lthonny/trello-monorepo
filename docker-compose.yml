@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  angular:
+    build:
+      context: .
+      dockerfile: ./docker/angular/Dockerfile.local
+    container_name: angular
+    restart: on-failure
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules/
+    depends_on:
+      - node
+    env_file:
+      - ./frontend/.env
+    ports:
+      - 4200:4200
+
+  db:
+    image: mariadb
+    container_name: database
+    environment:
+      MARIADB_ROOT_PASSWORD: "secret"
+      MARIADB_DATABASE: "trello"
+      MARIADB_USER: "root"
+      MARIADB_PASSWORD: "secret"
+    ports:
+      - "3888:3888"
+    volumes:
+      - ./mariadb/:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d

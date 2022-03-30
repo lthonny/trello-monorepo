@@ -1,0 +1,10 @@
+FROM node:16.13.2
+WORKDIR /app
+
+RUN chmod -R 755 ./
+
+COPY ./frontend ./
+RUN npm install --unsafe-perm
+
+EXPOSE 4200
+CMD ["npm","start"]
