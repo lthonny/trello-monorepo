@@ -1,26 +1,41 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BoardsComponent } from './boards/boards.component';
-import { LoginComponent } from './login/login.component';
-import { RegComponent } from './reg/reg.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+// import { BoardsComponent } from './modules/page/boards/boards.component';
 
 const routes: Routes = [
   {
-    path: "boards",
-    component: BoardsComponent
+    path: "register",
+    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule)
   },
   {
     path: "login",
-    component: LoginComponent
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
+  },
+  // {
+  //   path: "changepass",
+  //   loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
+  // },
+  {
+    path: "error",
+    loadChildren: () => import('./modules/error/error.module').then(m => m.ErrorModule)
   },
   {
-    path: "reg",
-    component: RegComponent
-  }
+    path: "404",
+    loadChildren: () => import('./modules/not-found/not-found.module').then(m => m.NotFoundModule)
+  },
+  // {
+  //   path: "boards",
+  //   component: BoardsComponent
+  // },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+    relativeLinkResolution: 'corrected',
+    preloadingStrategy: PreloadAllModules
+  })
+],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
